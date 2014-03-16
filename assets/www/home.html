@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta id="extViewportMeta" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!--<link rel="stylesheet" href="css/jquerymobile.css" />
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.light.css"  id='jQMnDTheme' />-->
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" />
+    <!--<link rel="stylesheet" href="css/custom.css" />-->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script src="js/nativedroid.script.js"></script>
+    <script src="js/authorize_page.js"></script>
+
+    <script  charset="utf-8" src="js/cordova-2.9.0.js"></script>
+    <script type="text/javascript">
+
+      jQuery(window).load(function() {
+          jQuery('#loading-image').hide();
+      });
+      function user_logout() {
+        window.localStorage.removeItem('login_token');
+        window.location ='index.html'
+      }
+
+    </script>
+    <style>
+      .Absolute-Center { 
+  height: 50%; /* Set your own height: percents, ems, whatever! */
+  width: 50%; /* Set your own width: percents, ems, whatever! */
+  overflow: auto; /* Recommended in case content is larger than the container */
+  margin: auto; /* Center the item vertically & horizontally */
+  position: absolute; /* Break it out of the regular flow */
+  top: 0; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
+}
+
+
+/* //////////////////////////////////////// */
+/* Make sure our center blocks stay in their container! */
+.Center-Container { position: relative; }
+
+
+/* //////////////////////////////////////// */
+/* Fixed floating element within viewport */
+.Absolute-Center.is-Fixed { 
+  position: fixed;
+  z-index: 999;
+}
+
+
+/* //////////////////////////////////////// */
+/* Min/Max Width */
+.Absolute-Center.is-Responsive {
+  width: 60%; 
+  height: 60%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
+}
+
+        #heading
+      {
+        background-color: #0071BC;
+        color: white;
+        margin-top: -10px;
+      }
+      #heading_menu{
+        background-color: #B6DB49;  
+      }
+    </style>
+  </head>
+<body>
+     <div id="loading-image">
+          <img src="images/loading-old.gif" alt="Loading..." />
+        </div>
+
+<div data-role="page" id="demo-page" data-url="demo-page" data-theme="b">
+    <div data-role="header" id="heading"  data-theme="b">
+        <a href="#left-panel"><i class='icon-reorder'></i></a>
+        <h1>Farm Central - Dashboard</h1>
+    </div><!-- /header -->
+   
+
+    <div role="main" class="ui-content">
+       <ul data-role="listview" data-inset="true">
+      <li>
+        <div style="float:left;"><img src="images/temp-image-1.png"></div>
+        <h3 class="title-1">Temperature</h3>
+        <h1 class="title-2" style="font-size: xx-large;">25&deg;F</h1> 
+      </li>
+      <li>
+        <div style="float:left;"><img src="images/humudity-image-1.png"></div>
+        <h3 class="title-1">Humudity</h3>
+        <h1 class="title-2" style="font-size: xx-large;">43%</h1>
+      </li>
+      <li>
+        <div style="float:left;"><img src="images/water-image-1.png"></div>
+        <h3 class="title-1">Water</h3>
+        <h1 class="title-2" style="font-size: xx-large;">200 Ltrs</h1>
+      </li>
+      <li>
+        <div style="float:left;"><img src="images/air-image-1.png"></div>
+        <h3 class="title-1">Air Quality</h3>
+        <h1 class="title-2" style="font-size: xx-large;">WARM</h1>
+      </li>
+    </ul>
+    <button>
+    <i class='icon-dashboard'></i> 
+                  Daily Inventory
+                </button>
+                <button type="Submit">
+                  <i class='icon-edit'></i><b>New Shipment</b>
+                </button>
+   </div><!-- /content -->
+    <div data-role="panel" data-transition="slide"  id="left-panel" data-theme="a">
+      <ul data-role='listview'>
+        <li data-role="list-divider" id="heading_menu">Menu</li>
+        <li><a href="home.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Dashboard</a></li>
+        <li><a href="inventory.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Inventory</a></li>
+        <li><a href="shipments.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-dashboard'></i> Shipment</a></li>
+        <li><a href="order_form.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-edit'></i> New Order</a></li>
+        <li><a href="site_form.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-edit-sign'></i> New Site</a></li>
+        <li><a href="pictures.html" data-transition="slide"  data-ajax='false' rel="external"><i class='icon-edit-sign'></i> Pictures</a></li>
+        <li><a href="#" data-ajoutax='false' data-transition="slide"  onclick="user_logout();" rel="external"><i class='icon-signout'></i> Logout</a></li>
+      </ul>
+    </div>
+</div> 
+
+</body>
+ 
+</html>
